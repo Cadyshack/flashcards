@@ -1,23 +1,58 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import DeckList from './components/DeckList.js';
+import AddDeck from './components/AddDeck.js';
+import { Constants } from 'expo';
+import { createBottomTabNavigator } from 'react-navigation';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers';
+
+
+function FlashcardStatusBar ({backgroundColor, ...props}){
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
+
+const Tabs = createBottomTabNavigator({
+  Decks: {
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'Decks'
+    }
+  },
+  NewDeck: {
+    screen: AddDeck,
+    navigationOptions: {
+      tabBarLabel: 'New Deck'
+    }
+  }
+},
+{
+  navigationOptions: {
+    header: null
+  }
+})
+
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 
 export default class App extends React.Component {
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={store}>
+        <View style={{flex: 1}}>
+          <FlashcardStatusBar backgroundColor={'blue'} barStyle="light-content" />
+          <Tabs />
+        </View>
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
