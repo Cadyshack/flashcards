@@ -10,12 +10,12 @@ function decks ( state = {}, action ) {
 	switch (action.type) {
 		case ADD_DECK:
 		 return {
-		 	...state,
-		 	[deckTitle]: {
-		 		title: deckTitle,
-		 		questions: []
-		 	}
-		}
+			 	...state,
+			 	[deckTitle]: {
+			 		title: deckTitle,
+			 		questions: []
+			 	}
+			}
 		case RECEIVE_DECKS:
 			return {
 				...state,
@@ -31,9 +31,10 @@ function decks ( state = {}, action ) {
 						...card
 					]
 				}
-
 			}
+		default:
+			return state
 	}
-}
+};
 
 export default decks;
