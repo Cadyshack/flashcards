@@ -65,6 +65,7 @@ const MainNavigator = createStackNavigator({
     screen: DeckItem,
     navigationOptions: {
       headerTintColor: '#fff',
+      headerForceInset: {top: 'never'},
       headerStyle: {
         backgroundColor: 'purple',
       }
