@@ -22,6 +22,9 @@ class DeckItem extends Component {
 					<TouchableOpacity style={styles.btn}  >
 						<Text style={styles.btnText}>ADD CARD</Text>
 					</TouchableOpacity>
+					<TouchableOpacity style={[styles.btn, {marginTop: 20}]}  >
+						<Text style={styles.btnText}>START QUIZ</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		)
@@ -36,11 +39,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-around',
 	},
 	btn: {
-		backgroundColor: 'blue',
+		backgroundColor: 'rgb(0, 122, 255)',
 		padding: 10,
 		paddingLeft: 30,
 		paddingRight: 30,
 		height: 45,
+		width: 250,
 		borderRadius: 5,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -53,10 +57,12 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 30,
+		textAlign: 'center'
 	},
 	card: {
 		textAlign: 'center',
-		color: 'rgb(60,60,60)'
+		color: 'rgb(60,60,60)',
+		fontSize: 20
 	}
 })
 

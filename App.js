@@ -67,7 +67,7 @@ const MainNavigator = createStackNavigator({
       headerTintColor: '#fff',
       headerForceInset: {top: 'never'},
       headerStyle: {
-        backgroundColor: 'purple',
+        backgroundColor: 'rgb(0,5,40)',
       }
     }
   },
@@ -84,7 +84,7 @@ export default class App extends React.Component {
     return (
       <Provider store={this.store}>
         <View style={{flex: 1}}>
-          <FlashcardStatusBar backgroundColor={'black'} barStyle="light-content" />
+          <FlashcardStatusBar backgroundColor={'rgb(0,5,40)'} barStyle="light-content" />
           <MainNavigator />
         </View>
       </Provider>

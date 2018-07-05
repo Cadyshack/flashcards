@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 20,
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderBottomWidth: 2,
+		borderBottomWidth: 1,
 	},
 	card: {
 		textAlign: 'center',
