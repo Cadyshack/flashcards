@@ -13,6 +13,10 @@ class AddDeck extends Component {
 		const title = this.state.text;
 		saveDeckTitle(title);
 		this.props.dispatch(addDeck(title));
+		this.props.navigation.navigate(
+			'DeckItem',
+			{title, cardNum: 0}
+		)
 
 	}
 	render(){
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	submitBtn: {
-		backgroundColor: 'blue',
+		backgroundColor: 'rgb(0, 122, 255)',
 		padding: 10,
 		paddingLeft: 30,
 		paddingRight: 30,
