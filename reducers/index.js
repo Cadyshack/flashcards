@@ -26,10 +26,7 @@ function decks ( state = {}, action ) {
 				...state,
 				[title]: {
 					...state[title],
-					questions: [
-						...state[title].questions,
-						...card
-					]
+					questions: [ ...state[title].questions, card ]
 				}
 			}
 		default:

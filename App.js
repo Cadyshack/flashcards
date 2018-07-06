@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import { Entypo } from '@expo/vector-icons';
 import DeckItem from './components/DeckItem';
+import AddCard from './components/AddCard';
+import Quiz from './components/Quiz';
 
 
 function FlashcardStatusBar ({backgroundColor, ...props}){
@@ -64,6 +66,28 @@ const MainNavigator = createStackNavigator({
   DeckItem: {
     screen: DeckItem,
     navigationOptions: {
+      headerTintColor: '#fff',
+      headerForceInset: {top: 'never'},
+      headerStyle: {
+        backgroundColor: 'rgb(0,5,40)',
+      }
+    }
+  },
+  AddCard: {
+    screen: AddCard,
+    navigationOptions: {
+      title: 'Add Card',
+      headerTintColor: '#fff',
+      headerForceInset: {top: 'never'},
+      headerStyle: {
+        backgroundColor: 'rgb(0,5,40)',
+      }
+    }
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz',
       headerTintColor: '#fff',
       headerForceInset: {top: 'never'},
       headerStyle: {

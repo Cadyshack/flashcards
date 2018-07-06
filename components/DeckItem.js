@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import AddCard from './AddCard';
+import Quiz from './Quiz';
 
 class DeckItem extends Component {
 
@@ -19,17 +21,26 @@ class DeckItem extends Component {
 					<Text style={styles.card} >{`${cardNum} cards`}</Text>
 				</View>
 				<View>
-					<TouchableOpacity style={styles.btn}  >
+					<TouchableOpacity style={styles.btn}
+						onPress={() =>  this.props.navigation.navigate(
+								'AddCard',
+								{title}
+							)}
+					>
 						<Text style={styles.btnText}>ADD CARD</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={[styles.btn, {marginTop: 20}]}  >
+					<TouchableOpacity style={[styles.btn, {marginTop: 20}]}
+						onPress={() =>  this.props.navigation.navigate(
+								'Quiz',
+								{title}
+							)}
+					>
 						<Text style={styles.btnText}>START QUIZ</Text>
 					</TouchableOpacity>
 				</View>
 			</View>
 		)
 	}
-
 }
 
 const styles = StyleSheet.create({

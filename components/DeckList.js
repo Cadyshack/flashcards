@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableHighlight } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
 import { getDecks } from '../utils/api.js';
 import { receiveDecks } from '../actions';
 import { connect } from 'react-redux';

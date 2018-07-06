@@ -21,7 +21,14 @@ export function saveDeckTitle(title) {
 
 }
 
-export function addCardToDeck() {
-
+export function addCardToDeck(title, card) {
+	let objcard = {
+		questions: [
+			{...card}
+		]
+	}
+	return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({
+		[title]: objcard
+	}))
 }
 
