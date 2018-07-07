@@ -14,7 +14,7 @@ class DeckItem extends Component {
 		return {
 			title,
 			tintColor: '#fff',
-			headerLeft: <Ionicons name='ios-arrow-back' style={styles.backButton} allowFontScaling={true} size={30} onPress={() => navigation.navigate('Decks')}
+			headerLeft: <Ionicons name='ios-arrow-back' style={styles.backButton} size={36} onPress={() => navigation.navigate('Decks')}
 			/>
 		}
 	}
@@ -86,12 +86,11 @@ const styles = StyleSheet.create({
 	},
 	backButton: {
 		color: '#fff',
-		width: 13,
-		height: 21,
 		overflow: 'hidden',
 		marginLeft: 9,
 		marginRight: 6,
-		lineHeight: 21,
+		marginVertical: 10,
+		lineHeight: 30,
 		transform: [{scaleX: 1}],
 
 	}
