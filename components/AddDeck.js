@@ -4,7 +4,6 @@ import { saveDeckTitle } from '../utils/api.js';
 import { connect } from 'react-redux';
 import { addDeck } from '../actions';
 
-
 class AddDeck extends Component {
 	state = {
 		text: ''
@@ -13,11 +12,11 @@ class AddDeck extends Component {
 		const title = this.state.text;
 		saveDeckTitle(title);
 		this.props.dispatch(addDeck(title));
+		this.setState({text: ''});
 		this.props.navigation.navigate(
 			'DeckItem',
 			{title, cardNum: 0}
 		)
-
 	}
 	render(){
 		return (

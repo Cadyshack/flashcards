@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import { addCard } from '../actions';
-import { addCardToDeck } from '../utils/api.js';
+import { addCardToDeck, getDeck } from '../utils/api.js';
 
 
 
@@ -20,8 +20,8 @@ class AddCard extends Component {
 		}
 		addCardToDeck(title, card);
 		this.props.dispatch(addCard(card, title));
-
-
+		this.setState({question: '', answer: ''});
+		this.props.navigation.goBack();
 	}
 
 	render(){

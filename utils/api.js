@@ -6,8 +6,8 @@ export function getDecks () {
 	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
 }
 
-export function getDeck() {
-
+export function getDeck(title) {
+	return AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
 }
 
 export function saveDeckTitle(title) {
@@ -22,13 +22,22 @@ export function saveDeckTitle(title) {
 }
 
 export function addCardToDeck(title, card) {
-	let objcard = {
-		questions: [
-			{...card}
-		]
-	}
-	return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({
-		[title]: objcard
-	}))
+	getDeck(title)
+	.then((res) => {
+		console.log('res: ', res);
+		let result = JSON.parse(res);
+		console.log('result: ', result);
+		let qArray = result[title].questions.concat(card);
+		return qArray;
+	})
+	.then((qArray) => {
+		return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({
+			[title]: {
+				questions: qArray
+			}
+		}))
+	})
+
+
 }
 

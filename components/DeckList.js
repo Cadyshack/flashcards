@@ -41,11 +41,19 @@ class DeckList extends Component {
 		)
 	}
 	render(){
-		const { ready } = this.state
+		const { ready } = this.state;
+		const decks = this.props.decks;
+
 		if (ready === false) {
       return <AppLoading />
     }
-
+    if (Object.keys(decks).length === 0){
+    	return (
+    		<View style={styles.empty}>
+    			<Text style={styles.title} >Add New Deck to Get Started!</Text>
+    		</View>
+    	)
+    }
 		return (
 			<View style={styles.container}>
 				<FlatList
@@ -57,7 +65,6 @@ class DeckList extends Component {
 		)
 	}
 }
-
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -76,10 +83,17 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 30,
+		textAlign: 'center'
+	},
+	empty: {
+		flex: 1,
+		padding: 50,
+		justifyContent: 'center',
+		alignItems: 'center',
+
 
 	}
 })
-
 
 function mapStateToProps (state) {
 	let deckArray;
