@@ -28,7 +28,7 @@ class AddCard extends Component {
 		const navigation = this.props.navigation
 		return (
 			<KeyboardAvoidingView behavior='padding' style={styles.container}>
-				<Text>Enter Question:</Text>
+				<Text style={styles.instructions}>Enter Question:</Text>
 				<TextInput
 					style={styles.input}
 					onChangeText={(question) => this.setState({question})}
@@ -36,7 +36,7 @@ class AddCard extends Component {
 					multiline={true}
 					numberOfLines={4}
 				/>
-				<Text>Enter Answer:</Text>
+				<Text style={styles.instructions}>Enter Answer:</Text>
 				<TextInput
 					style={styles.input}
 					onChangeText={(answer) => this.setState({answer})}
@@ -83,6 +83,9 @@ const styles = StyleSheet.create({
 		color: 'white',
 		fontSize: 22,
 		textAlign: 'center'
+	},
+	instructions: {
+		fontSize: 18
 	}
 })
 
