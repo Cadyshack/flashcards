@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { addCard } from '../actions';
 import { addCardToDeck, getDeck } from '../utils/api.js';
@@ -28,25 +28,32 @@ class AddCard extends Component {
 		const navigation = this.props.navigation
 		return (
 			<KeyboardAvoidingView behavior='padding' style={styles.container}>
-				<Text style={styles.instructions}>Enter Question:</Text>
-				<TextInput
-					style={styles.input}
-					onChangeText={(question) => this.setState({question})}
-					value={this.state.question}
-					multiline={true}
-					numberOfLines={4}
-				/>
-				<Text style={styles.instructions}>Enter Answer:</Text>
-				<TextInput
-					style={styles.input}
-					onChangeText={(answer) => this.setState({answer})}
-					value={this.state.answer}
-					multiline={true}
-					numberOfLines={4}
-				/>
-				<TouchableOpacity style={styles.submitBtn} onPress={this.submit} >
-					<Text style={styles.submitBtnText}>SUBMIT</Text>
-				</TouchableOpacity>
+				<View style={{flex: 1, padding: 20}}>
+					<ScrollView  >
+						<Text style={styles.instructions}>Enter Question:</Text>
+						<TextInput
+							style={styles.input}
+							onChangeText={(question) => this.setState({question})}
+							value={this.state.question}
+							multiline={true}
+							numberOfLines={4}
+						/>
+						<Text style={styles.instructions}>Enter Answer:</Text>
+						<TextInput
+							style={styles.input}
+							onChangeText={(answer) => this.setState({answer})}
+							value={this.state.answer}
+							multiline={true}
+							numberOfLines={4}
+						/>
+					</ScrollView>
+					<View style={{padding: 20}}>
+						<TouchableOpacity style={styles.submitBtn} onPress={this.submit} >
+							<Text style={styles.submitBtnText}>SUBMIT</Text>
+						</TouchableOpacity>
+					</View>
+
+				</View>
 			</KeyboardAvoidingView>
 		)
 	}
