@@ -24,9 +24,7 @@ export function saveDeckTitle(title) {
 export function addCardToDeck(title, card) {
 	getDeck(title)
 	.then((res) => {
-		console.log('res: ', res);
 		let result = JSON.parse(res);
-		console.log('result: ', result);
 		let qArray = result[title].questions.concat(card);
 		return qArray;
 	})

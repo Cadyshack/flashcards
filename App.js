@@ -11,6 +11,7 @@ import { Entypo } from '@expo/vector-icons';
 import DeckItem from './components/DeckItem';
 import AddCard from './components/AddCard';
 import Quiz from './components/Quiz';
+import { setLocalNotification } from './utils/helpers.js';
 
 
 function FlashcardStatusBar ({backgroundColor, ...props}){
@@ -100,6 +101,10 @@ const MainNavigator = createStackNavigator({
 
 
 export default class App extends React.Component {
+  componentDidMount(){
+    setLocalNotification()
+  }
+
   store = createStore(
     reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

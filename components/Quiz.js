@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { shuffleArray } from '../utils/helpers.js';
-
+import { shuffleArray, clearLocalNotification, setLocalNotification } from '../utils/helpers.js';
 
 class Quiz extends Component {
 	state = {
@@ -22,7 +21,12 @@ class Quiz extends Component {
 				}
 			})
 		} else {
-			this.setState({finished: true})
+			this.setState(() => ({ finished: true }),
+				() => {
+					clearLocalNotification()
+						.then(setLocalNotification)
+				}
+			)
 		}
 	}
 	restartQuiz = () => {
