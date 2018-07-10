@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import AddCard from './AddCard';
 import Quiz from './Quiz';
 import { connect } from 'react-redux';
@@ -39,10 +39,19 @@ class DeckItem extends Component {
 						<Text style={styles.btnText}>ADD CARD</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={[styles.btn, {marginTop: 20}]}
-						onPress={() =>  this.props.navigation.navigate(
-								'Quiz',
-								{title}
-							)}
+						onPress={() =>  {
+							if (cardNumber > 0 ){
+								this.props.navigation.navigate(
+									'Quiz',
+									{title}
+								)
+							} else {
+								Alert.alert(
+									'No Cards!',
+									'Please add at least one card before starting a quiz.'
+								);
+							}
+						}}
 					>
 						<Text style={styles.btnText}>START QUIZ</Text>
 					</TouchableOpacity>
