@@ -13,7 +13,7 @@ The purpose of this application is to allow users to study collections of flashc
 * Start the development server with `npm start` or `yarn start`
 * You'll see a message saying *Starting packager...*, give it a few seconds, then you need to press **i** to start the iOS simulator
 
-**Note:** if you want to test on a real iOS device, you can do so with the Expo app which you can get:
+**Note:** if you want to test on a real iOS device, you can do so with the Expo app which you can get here:
 * [Expo on the App Store](https://itunes.apple.com/us/app/expo-client/id982107779)
 
 ## Built With
